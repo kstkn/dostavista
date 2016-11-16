@@ -109,14 +109,31 @@ class Point extends AbstractModel
         return $this;
     }
 
+    /**
+     * @param int $weight
+     *
+     * @return self
+     */
+    public function setWeight(int $weight): self
+    {
+        $this->weight = $weight;
+        return $this;
+    }
+
+    /**
+     * @param int $clientOrderId
+     *
+     * @return self
+     */
+    public function setClientOrderId(int $clientOrderId): self
+    {
+        $this->clientOrderId = $clientOrderId;
+        return $this;
+    }
+
     protected function setContactPersone(string $contactPersone)
     {
         $this->contactPerson = $contactPersone;
-    }
-
-    protected function setWeight(int $weight)
-    {
-        $this->weight = $weight;
     }
 
     protected function setInOutline(int $inOutline)
