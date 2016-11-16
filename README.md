@@ -28,6 +28,40 @@ $client = new \Dostavista\Dostavista(new \GuzzleHttp\Client, [
 ]);
 ```
 
+### Calculate order
+
+```php
+use Dostavista\OrderRequest;
+use Dostavista\Point;
+
+$orderRequest = (new OrderRequest('Весы'))
+    ->setRequireCar(OrderRequest::DELIVERY_TYPE_FOOT)
+    ->setBackpaymentMethod(OrderRequest::BACKPAYMENT_CARD)
+    ->setBackpaymentDetails('Карта Сбербанка XXXX, получатель СЕРГЕЙ ИВАНОВИЧ П')
+    ->setPoints([
+        (new Point(
+            'Москва, Магистральный пер., 1',
+            new DateTime('17:00'),
+            new DateTime('18:00'),
+            '4951234567'
+        ))
+        ->setContactPerson('Менеджер Склада Иван')
+        ->setNote('Комплекс "Сити-Бокс"'),
+        
+        (new Point(
+            'Москва, Бобруйская, 28',
+            new DateTime('18:00'),
+            new DateTime('19:00'),
+            '9261234567'
+        ))
+        ->setContactPerson('Анна Иванова')
+        ->setNote('кв.66, домоф.1234')
+        ->setTaking(3000),
+    ]);
+    
+$deliveryFee = $client->calculateOrder($orderRequest);
+```
+
 ### Create order
 
 ```php
