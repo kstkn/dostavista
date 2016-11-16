@@ -200,10 +200,110 @@ class Order extends BaseOrder
         return $this->status;
     }
 
+    public function getStatusName(): string
+    {
+        return $this->statusName;
+    }
+
+    public function getCreated(): DateTime
+    {
+        return $this->created;
+    }
+
+    public function getCost(): float 
+    {
+        return $this->cost;
+    }
+
+    public function getInsuranceFee(): float 
+    {
+        return $this->insuranceFee;
+    }
+
+    public function getTakingTransferFee(): float
+    {
+        return $this->takingTransferFee;
+    }
+
+    public function getWeightFee(): float
+    {
+        return $this->weightFee;
+    }
+
+    public function getSmsNotification(): int
+    {
+        return $this->smsNotification;
+    }
+
+    public function getBackpaymentAmount(): float
+    {
+        return $this->backpaymentAmount;
+    }
+
+    public function getDeliveryFee(): float
+    {
+        return $this->deliveryFee;
+    }
+
+    public function getPayment(): float
+    {
+        return $this->payment;
+    }
+
+    public function getCourier(): Courier
+    {
+        return $this->courier;
+    }
+
+    public function getRequireCar(): int
+    {
+        return $this->requireCar;
+    }
+
+    public function getMatter(): string
+    {
+        return $this->matter;
+    }
+
+    public function getInsurance(): float
+    {
+        return $this->insurance;
+    }
+
+    public function getBackpaymentMethod(): int
+    {
+        return $this->backpaymentMethod;
+    }
+
+    public function getBackpaymentDetails(): string
+    {
+        return $this->backpaymentDetails;
+    }
+
+    public function getBapiUserAgent(): string
+    {
+        return (string) $this->bapiUserAgent;
+    }
+
+    public function getRecipientsSmsNotification(): int
+    {
+        return $this->recipientsSmsNotification;
+    }
+
+    public function getRequireLoading(): int
+    {
+        return $this->requireLoading;
+    }
+
+    public function getNote(): string
+    {
+        return $this->note;
+    }
+
     /**
      * @return Point[]
      */
-    public function getPoints()
+    public function getPoints(): array
     {
         return $this->points;
     }
