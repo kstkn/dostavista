@@ -3,6 +3,10 @@ Dostavista API client
 
 A PHP library for the dostavista.ru REST API
 
+[![Latest Stable Version](https://poser.pugx.org/gietos/dostavista/version)](https://packagist.org/packages/gietos/dostavista)
+[![Total Downloads](https://poser.pugx.org/gietos/dostavista/downloads)](https://packagist.org/packages/gietos/dostavista)
+[![License](https://poser.pugx.org/gietos/dostavista/license)](https://packagist.org/packages/gietos/dostavista)
+
 [API documentation](https://docs.google.com/document/d/1-yjBzfkI9Zb44kkQB_rMcq5pNeLThyD6YbvXR9wl7IY/edit?usp=sharing)
 
 ## Installation
