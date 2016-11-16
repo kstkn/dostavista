@@ -82,6 +82,17 @@ class Dostavista
         return $this->parseResponse($response);
     }
 
+    public function calculateOrder(OrderRequest $orderRequest): float
+    {
+        $data = $this->post('calculate', $orderRequest);
+
+        if (!isset($data['payment'])) {
+            throw new RuntimeException('Invalid response: "payment" key is missing. Response data: ' . json_encode($data));
+        }
+
+        return (float) $data['payment'];
+    }
+
     /**
      * @param OrderRequest $orderRequest
      * @return int Order ID
