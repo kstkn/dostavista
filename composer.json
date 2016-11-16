@@ -3,6 +3,7 @@
     "description": "Dostavista API client",
     "type": "library",
     "require": {
+        "php": ">=7.0",
         "guzzlehttp/guzzle": "^6.2",
         "doctrine/inflector": "^1.1"
     },

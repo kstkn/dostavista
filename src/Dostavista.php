@@ -152,4 +152,19 @@ class Dostavista
     {
         $this->post('cancel-order', $cancelRequest);
     }
+
+    protected function signEvent(BaseEvent $event): string
+    {
+        return md5($this->token . json_encode($event->asArray(), JSON_UNESCAPED_UNICODE));
+    }
+
+    public function getEvent(array $eventData): BaseEvent
+    {
+        $event = new BaseEvent($eventData);
+        if ($event->getSignature() !== $this->signEvent($event)) {
+            throw new InvalidSignatureException('Could not validate received event. Event data: ' . json_encode($eventData));
+        }
+
+        return $event;
+    }
 }
