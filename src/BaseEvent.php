@@ -15,7 +15,7 @@ class BaseEvent extends AbstractModel
     protected $event;
 
     /**
-     * @var int Order ID
+     * @var string Signature
      */
     protected $signature;
 
@@ -23,6 +23,14 @@ class BaseEvent extends AbstractModel
      * @var array Event data
      */
     protected $data;
+
+    public function __construct(string $event, string $signature, array $data)
+    {
+        parent::__construct();
+        $this->event = $event;
+        $this->signature = $signature;
+        $this->data = $data;
+    }
 
     public function getSignature(): string
     {
