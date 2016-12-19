@@ -121,11 +121,11 @@ class Point extends AbstractModel
     }
 
     /**
-     * @param int $clientOrderId
+     * @param string $clientOrderId
      *
      * @return self
      */
-    public function setClientOrderId(int $clientOrderId): self
+    public function setClientOrderId(string $clientOrderId): self
     {
         $this->clientOrderId = $clientOrderId;
         return $this;
