@@ -1,7 +1,7 @@
 Dostavista API client
 =====================
 
-A PHP library for the dostavista.ru REST API
+Non-official PHP library for the dostavista.ru REST API
 
 [![Latest Stable Version](https://poser.pugx.org/gietos/dostavista/version)](https://packagist.org/packages/gietos/dostavista)
 [![Total Downloads](https://poser.pugx.org/gietos/dostavista/downloads)](https://packagist.org/packages/gietos/dostavista)
