@@ -170,7 +170,7 @@ class Dostavista
 
     public function getEvent(array $eventData): BaseEvent
     {
-        $event = new BaseEvent($eventData['event'], $eventData['signature'], $eventData);
+        $event = new BaseEvent($eventData['event'], $eventData['signature'], $eventData['data']);
         if ($event->getSignature() !== $this->signEvent($event)) {
             throw new InvalidSignatureException('Could not validate received event. Event data: ' . json_encode($eventData));
         }
