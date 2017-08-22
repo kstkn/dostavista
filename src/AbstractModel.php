@@ -2,7 +2,6 @@
 
 namespace Dostavista;
 
-use DateTime;
 use Doctrine\Common\Inflector\Inflector;
 use ReflectionClass;
 
@@ -10,6 +9,7 @@ abstract class AbstractModel implements Configurable, Exportable
 {
     use ConfigureTrait;
 
+    const DATE_TIMEZONE = 'Europe/Moscow';
     const DATE_EXPORT_FORMAT = 'Y-m-d H:i:s';
 
     public function __construct(array $config = [])
@@ -58,7 +58,8 @@ abstract class AbstractModel implements Configurable, Exportable
             return $propertyValue->export();
         }
 
-        if ($propertyValue instanceof DateTime) {
+        if ($propertyValue instanceof \DateTime) {
+            $propertyValue->setTimezone(new \DateTimeZone(self::DATE_TIMEZONE));
             return $propertyValue->format(self::DATE_EXPORT_FORMAT);
         }
 
