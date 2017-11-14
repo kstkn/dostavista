@@ -177,4 +177,21 @@ class Dostavista
 
         return $event;
     }
+    
+    /**
+     * Build order URL for order
+     *
+     * @param int $orderId Order identifier
+     *
+     * @return string Order URL
+     */
+    public function buildOrderUrl(int $orderId): string
+    {
+        return sprintf(
+            'https://%s/cabinet/%u/order-view/%u',
+            parse_url($this->baseUrl, PHP_URL_HOST),
+            $this->clientId,
+            $orderId
+        );
+    }
 }
