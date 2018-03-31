@@ -188,9 +188,8 @@ class Dostavista
     public function buildOrderUrl(int $orderId): string
     {
         return sprintf(
-            'https://%s/cabinet/%u/order-view/%u',
+            'https://%s/cabinet/order-view/%u',
             parse_url($this->baseUrl, PHP_URL_HOST),
-            $this->clientId,
             $orderId
         );
     }
