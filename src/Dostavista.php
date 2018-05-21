@@ -41,6 +41,12 @@ class Dostavista
         if ($data['result'] === 0) {
             if (isset($data['error_message'], $data['error_message'][0])) {
                 throw new RequestException($data['error_message'][0]);
+            } elseif (isset($data['validation_errors']['point']) && count($data['validation_errors']['point']) > 0) {
+                $context = [];
+                foreach ($data['validation_errors']['point'] as $pointNumber => $fields) {
+                    $context[] = ['point_number' => $pointNumber, 'fields' => $fields];
+                }
+                throw new ValidationException($context);
             } else {
                 throw new RequestException('Unknown request error');
             }
