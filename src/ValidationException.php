@@ -6,9 +6,27 @@ use Throwable;
 
 class ValidationException extends \Exception
 {
+    /**
+     * Validation context
+     *
+     * @var array
+     */
+    private $context;
+
     public function __construct(array $context, int $code = 0, Throwable $previous = null)
     {
-        parent::__construct('Validation error(s): ' . json_encode($context), $code, $previous);
+        $this->context = $context;
+
+        parent::__construct('Validation context: ' . json_encode($context), $code, $previous);
     }
 
+    /**
+     * Returns validation context
+     *
+     * @return array
+     */
+    public function getContext(): array
+    {
+        return $this->context;
+    }
 }
