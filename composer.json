@@ -1,5 +1,5 @@
 {
-    "name": "gietos/dostavista",
+    "name": "kstkn/dostavista",
     "description": "Dostavista API client",
     "type": "library",
     "require": {
